@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import ExpenseForm from "./ExpenseForm";
-import { addExpense } from "../actions/expenses";
+import { startAddExpense } from "../actions/expenses";
 export class AddExpensePage extends React.Component { //connectle bağlanmamı versiyonu test etmek için export ettik
     onSubmit = (expense) => {
         //props.dispatch(addExpense(expense));
-        this.props.addExpense(expense);
+        this.props.startAddExpense(expense);
         this.props.history.push("/") //dashboard sayfasına değişecek
     }
 
@@ -36,8 +36,8 @@ export class AddExpensePage extends React.Component { //connectle bağlanmamı v
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addExpense: (expense) => {
-            return dispatch(addExpense(expense))
+        startAddExpense: (expense) => {
+            return dispatch(startAddExpense(expense))
         }
     }
 }
